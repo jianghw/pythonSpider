@@ -4,7 +4,7 @@ import time
 import requests
 from requests import HTTPError, TooManyRedirects, RequestException
 
-import IP_Config
+from utils import IP_Config
 
 
 def _check_http_proxy(self, proxy_dict, isHttp=True):
