@@ -1,6 +1,7 @@
 """
 配置文件
 """
+import os
 import random
 
 # 获取请求头信息的接口
@@ -83,5 +84,21 @@ parser_list = [
     }
 ]
 
+
+class IpConfig(object):
+
+    def __init__(self):
+        # /home/jianghw/Projects/python/pythonSpider/utils/IP_Config.py
+        file_path = os.path.realpath(__file__)
+        # ('/home/jianghw/Projects/python/pythonSpider/utils', 'IP_Config.py')
+        self.pwd = os.path.split(file_path)[0]
+        self.conf_path = os.path.join(os.path.split(self.pwd)[0], 'config.txt')
+
+
 if __name__ == '__main__':
+    print(os.path)
+    print(os.path.realpath(__file__))
+    print(os.path.split(os.path.realpath(__file__)))
+    print(os.path.split(os.path.split(os.path.realpath(__file__))[0]))
+
     pass

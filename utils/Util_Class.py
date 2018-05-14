@@ -1,3 +1,6 @@
+from configparser import ConfigParser  # py3
+
+
 class Singleton(type):
     """
     单例
@@ -22,3 +25,8 @@ class LazyProperty(object):
             value = self.func(instance)
             setattr(instance, self.func.__name__, value)
             return value
+
+
+class ApiConfigParser(ConfigParser):
+    def __init__(self):
+        super(ConfigParser, self).__init__()
