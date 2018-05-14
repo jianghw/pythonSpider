@@ -5,6 +5,8 @@ import os
 import random
 
 # 获取请求头信息的接口
+from utils.Util_Class import ApiConfigParser
+
 TEST_HTTP_HEADER = 'http://httpbin.org/get'
 TEST_HTTPS_HEADER = 'https://httpbin.org/get'
 # 获取请求ip
@@ -72,7 +74,8 @@ def get_header():
 """
 parser_list = [
     {
-        'url': ['http://www.66ip.cn/%s.html' % n for n in ['index'] + list(range(2, 13))],
+        'url': ['http://www.66ip.cn/%s.html' % n for n in
+                ['index'] + list(range(2, 13))],
         'type': 'xpath',
         'pattern': '//*[@id="main"]/div/div[1]/table/tbody/tr[position()>1]',
         'position': {
@@ -85,20 +88,24 @@ parser_list = [
 ]
 
 
-class IpConfig(object):
+class EnvConfig(object):
 
     def __init__(self):
-        # /home/jianghw/Projects/python/pythonSpider/utils/IP_Config.py
+        # /home/jianghw/Projects/python/pythonSpider/utils/Util_Config.py
         file_path = os.path.realpath(__file__)
-        # ('/home/jianghw/Projects/python/pythonSpider/utils', 'IP_Config.py')
-        self.pwd = os.path.split(file_path)[0]
-        self.conf_path = os.path.join(os.path.split(self.pwd)[0], 'config.txt')
+        # ('/home/jianghw/Projects/python/pythonSpider/utils', 'Util_Config.py')
+        self.conf_package = os.path.split(file_path)[0]
+        self.conf_path = os.path.join(self.conf_package, 'config.txt')
+        self.conf_file = ApiConfigParser()
+        self.conf_file.read(self.conf_path)
+
+    def host_host(self):
+        return self.conf_file.get('HOST','host')
+
+    def host_port(self):
+        return self.conf_file.get('HOST', 'port')
 
 
 if __name__ == '__main__':
-    print(os.path)
-    print(os.path.realpath(__file__))
-    print(os.path.split(os.path.realpath(__file__)))
-    print(os.path.split(os.path.split(os.path.realpath(__file__))[0]))
 
     pass

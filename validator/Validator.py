@@ -4,7 +4,7 @@ import time
 import requests
 from requests import HTTPError, TooManyRedirects, RequestException
 
-from utils import IP_Config
+from utils import Util_Config
 
 
 def _check_http_proxy(self, proxy_dict, isHttp=True):
@@ -19,14 +19,15 @@ def _check_http_proxy(self, proxy_dict, isHttp=True):
     req_speed = -1
 
     if isHttp:
-        url_test = IP_Config.TEST_HTTP_HEADER
+        url_test = Util_Config.TEST_HTTP_HEADER
     else:
-        url_test = IP_Config.TEST_HTTPS_HEADER
+        url_test = Util_Config.TEST_HTTPS_HEADER
 
     start = time.time()
 
     try:
-        rsp = requests.get(url=url_test, headers=IP_Config.get_header(), timeout=IP_Config.TIME_OUT,
+        rsp = requests.get(url=url_test, headers=Util_Config.get_header(),
+                           timeout=Util_Config.TIME_OUT,
                            proxies=proxy_dict)
         if rsp.ok:
             rsp_json = json.loads(rsp.text)
@@ -59,8 +60,9 @@ def _check_http_proxy(self, proxy_dict, isHttp=True):
 
 # {"origin":"116.231.57.49"}
 def get_my_ip():
-    rsp = requests.get(url=IP_Config.TEST_ID_REQUEST, headers=IP_Config.get_header(),
-                       timeout=IP_Config.TIME_OUT)
+    rsp = requests.get(url=Util_Config.TEST_ID_REQUEST,
+                       headers=Util_Config.get_header(),
+                       timeout=Util_Config.TIME_OUT)
     return rsp.text
 
 

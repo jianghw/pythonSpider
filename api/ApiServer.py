@@ -1,5 +1,7 @@
 from flask import Flask
 
+from utils.Util_Config import EnvConfig
+
 app = Flask(__name__)
 
 
@@ -8,7 +10,8 @@ def start_api_server():
 
 
 def run_api():
-    app.run(host='', port='12')
+    conf = EnvConfig()
+    app.run(host=conf.host_host(), port=conf.host_port())
     pass
 
 
