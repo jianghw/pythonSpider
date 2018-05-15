@@ -1,10 +1,7 @@
-from configparser import ConfigParser  # py3
-
-
 class Singleton(type):
     """
-    单例
-    """
+        单例
+        """
     _inst = {}
 
     def __call__(cls, *args, **kwargs):
@@ -27,6 +24,17 @@ class LazyProperty(object):
             return value
 
 
+try:
+    from configparser import ConfigParser  # py3
+except Exception as err:
+    # from ConfigParser import ConfigParser  # py2
+    pass
+
+
 class ApiConfigParser(ConfigParser):
+    """
+        做py3&&py2 兼容
+        """
+
     def __init__(self):
         super(ConfigParser, self).__init__()
