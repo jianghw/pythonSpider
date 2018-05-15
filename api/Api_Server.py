@@ -11,7 +11,7 @@ def start_api_server():
 
 def run_api():
     conf = EnvConfig()
-    app.run(host=conf.host_host(), port=conf.host_port())
+    app.run(host=conf.host_host, port=conf.host_port)
     pass
 
 

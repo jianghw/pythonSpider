@@ -5,7 +5,7 @@ import os
 import random
 
 # 获取请求头信息的接口
-from utils.Util_Class import ApiConfigParser
+from utils.Util_Class import ApiConfigParser, LazyProperty
 
 TEST_HTTP_HEADER = 'http://httpbin.org/get'
 TEST_HTTPS_HEADER = 'https://httpbin.org/get'
@@ -99,13 +99,30 @@ class EnvConfig(object):
         self.conf_file = ApiConfigParser()
         self.conf_file.read(self.conf_path)
 
+    @LazyProperty
     def host_host(self):
-        return self.conf_file.get('HOST','host')
+        return self.conf_file.get('HOST', 'host')
 
+    @LazyProperty
     def host_port(self):
         return self.conf_file.get('HOST', 'port')
 
+    @LazyProperty
+    def db_type(self):
+        return self.conf_file.get('DB', 'type')
+
+    @LazyProperty
+    def db_name(self):
+        return self.conf_file.get('DB', 'name')
+
+    @LazyProperty
+    def db_host(self):
+        return self.conf_file.get('DB', 'host')
+
+    @LazyProperty
+    def db_port(self):
+        return self.conf_file.get('DB', 'port')
+
 
 if __name__ == '__main__':
-
     pass

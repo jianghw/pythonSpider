@@ -11,6 +11,11 @@ class Singleton(type):
 
 
 class LazyProperty(object):
+    """
+    装饰器类
+    装饰方法被调用时返回值 type()!=method
+    xx.method_name not xx.method_name()
+    """
 
     def __init__(self, func):
         self.func = func
