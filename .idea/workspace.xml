@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7090cf42-ed63-4fee-8da7-89fefa3e2ba8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/utils/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/API_Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/API_Server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/IP_Config.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/IP_Config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/Util_Class.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/Util_Class.py" afterDir="false" />
-    </list>
+    <list default="true" id="7090cf42-ed63-4fee-8da7-89fefa3e2ba8" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -282,7 +276,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="272" y="234" width="967" height="591" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
