@@ -38,7 +38,17 @@ class ScheduleValidator(ProxyManager, object):
         pass
 
     def main(self):
+        self.m_put_queue()
         pass
+
+    def m_put_queue(self):
+
+        pass
+
+
+def run_validator():
+    s_validator = ScheduleValidator()
+    s_validator.main()
 
 
 if __name__ == '__main__':

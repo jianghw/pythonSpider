@@ -1,10 +1,15 @@
+from db.Db_Client import DbClient
+from utils.Util_Log import UtilLogger
+
+
 class ProxyManager(object):
     """
     操作代理db
     """
 
     def __init__(self):
-        print('hello proxy manager')
+        self.db = DbClient()
+        self.log = UtilLogger()
         pass
 
 
