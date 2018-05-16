@@ -1,4 +1,5 @@
-from db.Db_Client import DbClient
+from db.Db_Factory import DbFactory
+from utils.Util_Config import EnvConfig
 from utils.Util_Log import UtilLogger
 
 
@@ -8,8 +9,9 @@ class ProxyManager(object):
     """
 
     def __init__(self):
-        self.db = DbClient()
+        self.db = DbFactory()
         self.log = UtilLogger()
+        self.conf = EnvConfig()
         pass
 
 

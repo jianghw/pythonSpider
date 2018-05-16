@@ -5,7 +5,7 @@ import os
 from logging.handlers import TimedRotatingFileHandler
 
 CURRENT_LOG_PATH = os.path.dirname(os.path.abspath(__file__))
-ROOT_LOG_PATH = os.path.join(CURRENT_LOG_PATH, os.pardir)
+ROOT_LOG_PATH = os.path.join(CURRENT_LOG_PATH, os.path.pardir)
 FILE_LOG_PATH = os.path.join(ROOT_LOG_PATH, 'logger')
 
 
@@ -25,8 +25,7 @@ class UtilLogger(Logger):
 
     def __set_file_handler(self, level=None):
         file_name = os.path.join(FILE_LOG_PATH, '{name}'.format(name=self.name))
-        if not os.path.exists(file_name):
-            os.makedirs(file_name)
+
         time_rotating_handler = TimedRotatingFileHandler(file_name, when='d',
                                                          backupCount='15')
         if not level:

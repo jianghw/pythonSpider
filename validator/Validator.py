@@ -60,7 +60,7 @@ def _check_http_proxy(self, proxy_dict, isHttp=True):
 
 # {"origin":"116.231.57.49"}
 def get_my_ip():
-    rsp = requests.get(url=Util_Config.TEST_ID_REQUEST,
+    rsp = requests.get(url=Util_Config.URL_ID_REQUEST,
                        headers=Util_Config.get_header(),
                        timeout=Util_Config.TIME_OUT)
     return rsp.text
@@ -76,3 +76,4 @@ if __name__ == '__main__':
     # _check_http_proxy(None, proxy_dict)
 
     get_my_ip()
+    pass

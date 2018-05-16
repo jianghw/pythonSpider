@@ -1,3 +1,4 @@
+import os
 from collections import deque
 
 
@@ -114,7 +115,7 @@ class D(C):
     pass
 
 
-if __name__ == '__main__':
+def extend_class():
     for cls in [B, C, D]:
         try:
             raise cls()
@@ -124,3 +125,12 @@ if __name__ == '__main__':
             print(c.txt)
         except B as b:
             print(b.txt)
+
+
+if __name__ == '__main__':
+    print('process id is {}'.format(os.getpid()))
+    pid = os.fork()
+    if pid == 0:
+        print('{}-->{}'.format(os.getpid(), os.getppid()))
+    else:
+        print('{}->{}'.format(os.getpid(), pid))

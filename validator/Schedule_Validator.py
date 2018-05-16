@@ -19,11 +19,10 @@ class ScheduleValidator(ProxyManager, object):
         self.proxy_dict = dict()
         pass
 
-    def m_validator_proxy(self, thread_count=10):
+    def m_validator_proxy(self, thread_count=5):
         """
-        创建线程列表
+        创建验证线程列表
         :param thread_count:
-        :return:
         """
         list_thread = list()
         for i in range(thread_count):
@@ -35,15 +34,22 @@ class ScheduleValidator(ProxyManager, object):
 
         for thread in list_thread:
             thread.join()
-        pass
 
     def main(self):
         self.m_put_queue()
-        pass
+
+        if not self.queue.empty():
+            self.m_validator_proxy()
 
     def m_put_queue(self):
-
-        pass
+        """
+        往队列中放ip
+        """
+        self.proxy_dict = dict()
+        list_ip = self.db.select_db(
+            'select ip_name from {table_name}'.format(table_name=self.db.all_proxy_name()))
+        for ip in list_ip:
+            self.queue.put(ip)
 
 
 def run_validator():

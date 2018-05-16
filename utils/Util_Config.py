@@ -10,7 +10,7 @@ from utils.Util_Class import ApiConfigParser, LazyProperty
 TEST_HTTP_HEADER = 'http://httpbin.org/get'
 TEST_HTTPS_HEADER = 'https://httpbin.org/get'
 # 获取请求ip
-TEST_ID_REQUEST = 'http://httpbin.org/ip'
+URL_ID_REQUEST = 'http://httpbin.org/ip'
 
 TIME_OUT = 10
 # 队列
