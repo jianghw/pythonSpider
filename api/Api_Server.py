@@ -1,8 +1,8 @@
-from flask import Flask
+from flask import Flask, render_template, url_for, redirect, request, abort
 
 from utils.Util_Config import EnvConfig
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='/home/jianghw/Projects/python/pythonSpider/templates')
 
 
 def start_api_server():
@@ -19,7 +19,18 @@ dict_api = {
 
 @app.route('/')
 def index():
-    return 'hello flask'
+    print('hello is me ')
+    return render_template('index.html')
+
+
+@app.route('/form/', methods=['GET', 'POST'])
+def form_input():
+    name = request.form.get('name')
+    age = request.form.get('age')
+    if name is None or name == '' or age is None or age == '':
+        return abort(401)
+
+    return redirect(url_for('bo'))
 
 
 def run_api():

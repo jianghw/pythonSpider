@@ -127,10 +127,65 @@ def extend_class():
             print(b.txt)
 
 
-if __name__ == '__main__':
+def process_id():
     print('process id is {}'.format(os.getpid()))
     pid = os.fork()
     if pid == 0:
         print('{}-->{}'.format(os.getpid(), os.getppid()))
     else:
         print('{}->{}'.format(os.getpid(), pid))
+
+
+list_a = []
+
+
+def deco(func):
+    print('run deco is {}'.format(func))
+    list_a.append(func)
+    return func
+
+
+@deco
+def f1():
+    print('f1')
+
+
+@deco
+def f2():
+    print('f2')
+
+
+def f3():
+    print('f3')
+
+
+def decorators_demo():
+    print('main')
+    print('list', list_a)
+    f1()
+    f2()
+    f3()
+
+
+def get_averager():
+    list_num = []
+    count_num = 2
+
+    def averager(value):
+        list_num.append(value)
+        nonlocal count_num
+        count_num += value
+        total = sum(list_num)
+        return total / len(list_num), count_num
+
+    return averager
+
+
+if __name__ == '__main__':
+    av = get_averager()
+    print(type(av))
+    print(av(10))
+    print(av(20))
+    print(av(30))
+    print(av(40))
+    print(av.__code__.co_freevars)
